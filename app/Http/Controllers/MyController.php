@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class MyController extends Controller
 {
     public function myPage(){
-        echo "<h1>Bliznets Nikita Vladimirovich</h1>";
+        $name = "Bliznets Nikita Vladimirovich";
+        return view('my-auth.login', [
+            'myName' => $name
+        ]);
     }
 }
