@@ -18,8 +18,8 @@
 					<tr>
 						<td>{{$country->name}}--{{$country->abbr}}</td>
 						<td>
-                        <a href="{{route('admin.edit_country', ['id' => $country->id ]) }}" class="btn btn-lg btn-info">Редактировать</a>
-                        <form method="POST" action="{{route('admin.delete_country', ['id' => $country->id ]) }}">
+                        <a href="{{route('admin.country.edit', ['country' => $country->id ]) }}" class="btn btn-lg btn-info">Редактировать</a>
+                        <form method="POST" action="{{route('admin.country.destroy', ['country' => $country->id ]) }}">
                             @method('DELETE')
                             @csrf
                         <button type="submit" class="btn btn-lg btn-danger">Удалить</button>
