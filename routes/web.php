@@ -57,20 +57,24 @@ Route::delete('admin/articles/edit/{id}/delete', [App\Http\Controllers\Admin\Art
 
 //Country
 
-Route::get('admin/countries', [App\Http\Controllers\Admin\CountryController::class, 'index']);
+// Route::get('admin/countries', [App\Http\Controllers\Admin\CountryController::class, 'index']);
 
-Route::get('admin/countries/create', [App\Http\Controllers\Admin\CountryController::class, 'create']);
+// Route::get('admin/countries/create', [App\Http\Controllers\Admin\CountryController::class, 'create']);
 
-Route::post('admin/countries/store', [App\Http\Controllers\Admin\CountryController::class, 'store'])->name('admin.store_country');
+// Route::post('admin/countries/store', [App\Http\Controllers\Admin\CountryController::class, 'store'])->name('admin.store_country');
 
-Route::get('admin/countries/{id}/edit', [App\Http\Controllers\Admin\CountryController::class, 'edit'])->name('admin.edit_country');
+// Route::get('admin/countries/{country}/edit', [App\Http\Controllers\Admin\CountryController::class, 'edit'])->name('admin.edit_country');
 
-Route::put('admin/countries/edit/{id}/update', [App\Http\Controllers\Admin\CountryController::class, 'update'])
-->name('admin.update_country');
+// Route::put('admin/countries/edit/{id}/update', [App\Http\Controllers\Admin\CountryController::class, 'update'])
+// ->name('admin.update_country');
 
-Route::delete('admin/countries/edit/{id}/delete', [App\Http\Controllers\Admin\CountryController::class, 'delete'])
-->name('admin.delete_country');
+// Route::delete('admin/countries/edit/{id}/delete', [App\Http\Controllers\Admin\CountryController::class, 'delete'])
+// ->name('admin.delete_country');
 
-
+Route::prefix('admin')->name('admin.')->group(function (){
+Route::resource('country', \App\Http\Controllers\Admin\CountryController::class)
+->except(['show']);
+//names
+});
 
 
