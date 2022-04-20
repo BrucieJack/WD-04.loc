@@ -13,34 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});  
-
-Route::get('my-first-page', [\App\Http\Controllers\MyController::class, 'myPage']);
-
-// Route::get('test', function (){
-//     return view('admin.main');
-// });
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 
 
 
-// Auth::routes();
+Auth::routes();
 
-Route::get('login', [App\Http\Controllers\AutController::class, 'login']);
+// Route::get('login', [App\Http\Controllers\AutController::class, 'login']);
 
-Route::post('auth', [App\Http\Controllers\AutController::class, 'auth']);
+// Route::post('auth', [App\Http\Controllers\AutController::class, 'auth']);
 
-Route::get('logout', [App\Http\Controllers\AutController::class, 'logout'])->name('logout');
+// Route::get('logout', [App\Http\Controllers\AutController::class, 'logout'])->name('logout');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('admin', [App\Http\Controllers\Admin\AdminController::class, 'dashboard']);
 
 //Article
 
-Route::get('admin/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index']);
+Route::get('admin/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('admin.article.index');
 
 Route::get('admin/articles/create', [App\Http\Controllers\Admin\ArticleController::class, 'create']);
 
@@ -71,10 +63,10 @@ Route::delete('admin/articles/edit/{id}/delete', [App\Http\Controllers\Admin\Art
 // Route::delete('admin/countries/edit/{id}/delete', [App\Http\Controllers\Admin\CountryController::class, 'delete'])
 // ->name('admin.delete_country');
 
-Route::prefix('admin')->name('admin.')->group(function (){
-Route::resource('country', \App\Http\Controllers\Admin\CountryController::class)
-->except(['show']);
-//names
-});
-
+// Route::prefix('admin')->name('admin.')->group(function (){
+// Route::resource('country', \App\Http\Controllers\Admin\CountryController::class)
+// ->except(['show']);
+// //names
+// });
+Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
 
