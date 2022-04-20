@@ -70,3 +70,5 @@ Route::delete('admin/articles/edit/{id}/delete', [App\Http\Controllers\Admin\Art
 // });
 Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
 
+Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+
