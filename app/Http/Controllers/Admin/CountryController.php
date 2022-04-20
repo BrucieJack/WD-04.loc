@@ -76,8 +76,8 @@ class CountryController extends Controller
      */
     public function update(UpdateCountryRequest $request, Country $country)
     {
-        $country->fill($request->all())
-        ->save;
+        $country->fill($request->all());
+        $country->save();
     }
 
     /**
