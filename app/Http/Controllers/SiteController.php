@@ -11,7 +11,7 @@ class SiteController extends Controller
     public function index(){
 
         $product = Product::find(1);
-        dump($product);
+        // dump($product);
 
         $categories = Category::where('parent_id', 0)->get();
         return view('site.index', compact('categories'));
