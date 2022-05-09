@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
+Route::/*middleware('role.admin')->*/get('/', [App\Http\Controllers\SiteController::class, 'index']);
 
 
 
 Auth::routes();
+
+Route::get('catalog', [App\Http\Controllers\CatalogController::class, 'index']);
+
+Route::post('/add-to-cart', [App\Http\Controllers\CartController::class, 'add']);
+
+
 
 // Route::get('login', [App\Http\Controllers\AutController::class, 'login']);
 
@@ -71,4 +77,6 @@ Route::delete('admin/articles/edit/{id}/delete', [App\Http\Controllers\Admin\Art
 Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
 
 Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+
+
 

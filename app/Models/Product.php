@@ -29,4 +29,8 @@ class Product extends Model
     //         $this->attributes['price'] = (int) ($value*100);
     //     }
     // }
+
+    public function getImgAttribute(){
+        return 'https://pbs.twimg.com/profile_images/1488815273503244290/s3P6LeLK_400x400.png';
+    }
 }
