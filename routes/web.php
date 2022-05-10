@@ -80,3 +80,6 @@ Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)
 
 
 
+Route::get('converter', [App\Http\Controllers\Api\ConverterController::class, 'index']);
+Route::post('converter/result', [App\Http\Controllers\Api\ConverterController::class, 'exchange'])->name('converter.result');
+
